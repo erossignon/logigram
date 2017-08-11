@@ -2,15 +2,27 @@
   "name": "logigramsolver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index2.ts",
   "scripts": {
-    
-    "test": "./node_modules/.bin/mocha"
+    "compile": "tsc index2.ts -t es6 --module commonjs",
+    "compileES5": "tsc index2.ts -t es5 --downlevelIteration --lib DOM.Iterable,ES2015.Core,ES2015",
+    "test": "./node_modules/.bin/ts-mocha test/test_logigram.spec.ts",
+    "ts_fulltest": "mocha --compilers ts:ts-node/register,tsx:ts-node/register  test/test_logigram.spec.ts",
+    "test_old": "./node_modules/.bin/mocha",
+    "check_test": "tsc "
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/assert": "0.0.31",
+    "@types/mocha": "^2.2.41",
+    "@types/should": "^8.3.0",
     "mocha": "^3.5.0",
-    "should": "^11.2.1"
+    "should": "^11.2.1",
+    "ts-mocha": "^1.0.3",
+    "ts-node": "^3.3.0"
+  },
+  "dependencies": {
+    "@angular/cli": "^1.2.7"
   }
 }
