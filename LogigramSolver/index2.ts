@@ -19,13 +19,15 @@ export class LogigramSeries {
     title: string;
     seriesItems: Array<SeriesItem>;
     index: number;
-    constructor(dimension: number) {
+    constructor(dimension: number,index:number) {
         this.title = "";
+        this.index = index;
+        this.title = "T"+ this.index;
         this.seriesItems = new Array(dimension);
         for (let i=0;i<dimension;i++) { 
-            this.seriesItems[i] = new SeriesItem(); 
+            this.seriesItems[i] = new SeriesItem();
+            this.seriesItems[i].name = "T" + this.index + ":" + i;
         }
-        this.index = -1;
     }
     
     getSeriesItemIndexByName(name: string): number {
@@ -131,8 +133,7 @@ export class Logigram {
 
         this.series = new Array(nbSeries);
         for (let i:number = 0; i < nbSeries; i++) {
-            this.series[i] = new LogigramSeries(dimension);
-            this.series[i].index = i;
+            this.series[i] = new LogigramSeries(dimension,i);
         }
         this.facts = [];
         this.cells = {};
@@ -169,6 +170,12 @@ export class Logigram {
             series: series,
             index: index
         };
+    }
+    
+    makeHalfFact(seriesIndex:number, index: number): HalfFact {
+        const results = {};
+        results[this.series[seriesIndex].title] = this.series[seriesIndex].seriesItems[index].name;
+        return results;
     }
     setFalse(halfFact1:HalfFact, halfFact2:HalfFact):void {
         this.setFact("False", halfFact1, halfFact2);

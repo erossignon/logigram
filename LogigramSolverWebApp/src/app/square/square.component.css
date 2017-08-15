@@ -1,0 +1,48 @@
+.verticalTitle {
+    transform: rotate(90deg);
+}
+.horizontalTitle {
+    width: 8em;
+    max-width: 8em;
+    text-align: right;
+}
+.cell {
+    text-align: center;
+    width:  2em;
+    height: 2em;
+    max-width: 2em;
+    max-height: 2em;
+}
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 3px;
+    text-align:center;
+    vertical-align:middle;
+	
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}

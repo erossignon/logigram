@@ -1,0 +1,12 @@
+<div *ngIf="!cell.deduction" ngbDropdown class="d-inline-block">
+    <span  id="dropdownBasic1" ngbDropdownToggle>
+         {{cell.getInfo()}}
+    </span>
+    <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
+        <button class="dropdown-item" (click)="clickOn('True')">Y</button>
+        <button class="dropdown-item" (click)="clickOn('False')">N</button>
+    </div>
+</div>
+<div *ngIf="cell.deduction">
+         {{cell.getInfo()}}
+</div>

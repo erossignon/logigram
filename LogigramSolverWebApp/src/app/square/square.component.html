@@ -1,0 +1,58 @@
+<!-- {{row.index}} | {{cell | json}} -->
+
+<div class="divTable">
+    <div class="divTableBody">
+        <div class="divTableRow" *ngIf="showVerticalTitles">
+            <div class="divTableCell" *ngIf="showHorizontalTitles">
+                <div class="horizontalTitle">
+                    &nbsp toto
+                </div>
+            </div>
+            <div class="divTableCell" style="height:5em;" *ngFor="let cell of [].constructor(getDimension()); let j=index">
+                <div class="verticalTitle">
+                    {{logigram.series[square.seriesIndex2].seriesItems[j].name}}
+                </div>
+            </div>
+        </div>
+        <div class="divTableRow" *ngFor="let row of [].constructor(getDimension()); let i=index">
+            <div class="divTableCell" *ngIf="showHorizontalTitles">
+                <div class="horizontalTitle">
+                    {{logigram.series[square.seriesIndex1].seriesItems[i].name}}
+                </div>
+            </div>
+            <div class="divTableCell" *ngFor="let cell of [].constructor(getDimension()); let j=index">
+                <div class="cell">
+                    <app-cell  [logigram]="logigram" [cell]="getCell(i,j)"></app-cell>
+                    <!--                        {{logigram.getCell(square.seriesIndex1,i,square.seriesIndex2,j).getInfo()}}
+-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<table border="1" width="100%">
+
+    <tr *ngIf="showVerticalTitles">
+
+        <td *ngIf="showHorizontalTitles"></td>
+        <td class="vertical" style="vertical-align:middle;text-align=center" *ngFor="let cell of [].constructor(getDimension()); let j=index" (click)="clickOn(i,j)">
+            <div class="vertical">
+                {{logigram.series[square.seriesIndex2].seriesItems[j].name}}
+            </div>
+        </td>
+    </tr>
+    <tr *ngFor="let row of [].constructor(getDimension()); let i=index">
+
+        <td *ngIf="showHorizontalTitles">
+            {{logigram.series[square.seriesIndex1].seriesItems[i].name}}
+        </td>
+
+        <td style="vertical-align:middle;text-align=center" *ngFor="let cell of [].constructor(getDimension()); let j=index" (click)="clickOn(i,j)">
+            {{logigram.getCell(square.seriesIndex1,i,square.seriesIndex2,j).getInfo()}}
+
+
+        </td>
+    </tr>
+</table>
+-->

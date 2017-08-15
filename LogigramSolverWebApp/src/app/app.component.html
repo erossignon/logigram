@@ -1,0 +1,53 @@
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h2> Logigram {{logigram.getDimension()}} </h2>
+</div>
+
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-1">
+  <ngb-panel title="Definition">
+    <ng-template ngbPanelContent>
+
+      <ul>
+        <li *ngFor="let series of logigram.series">
+          {{series.index}}
+          <input [(ngModel)]="series.title" />
+          <ul>
+            <li *ngFor="let name of series.seriesItems; let i = index ">
+              {{name.name}} {{i}}
+              <input [(ngModel)]="name.name" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </ng-template>
+  </ngb-panel>
+
+
+  <ngb-panel>
+
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Matrix</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+
+
+      <table width="100%">
+        <tr *ngFor="let row of squareRows(); let rowIndex = index">
+          <td *ngFor="let square of squareCols(rowIndex); let j = index">
+            <app-square [logigram]="logigram" [square]="square">
+            </app-square>
+          </td>
+        </tr>
+      </table>
+
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
