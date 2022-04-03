@@ -6,23 +6,23 @@
   "scripts": {
     "compile": "tsc index2.ts -t es6 --module commonjs",
     "compileES5": "tsc index2.ts -t es5 --downlevelIteration --lib DOM.Iterable,ES2015.Core,ES2015",
-    "test": "./node_modules/.bin/ts-mocha test/test_logigram.spec.ts",
+    "test": "ts-mocha test/test_logigram.spec.ts",
     "ts_fulltest": "mocha --compilers ts:ts-node/register,tsx:ts-node/register  test/test_logigram.spec.ts",
-    "test_old": "./node_modules/.bin/mocha",
+    "test_old": "mocha",
     "check_test": "tsc "
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/assert": "0.0.31",
-    "@types/mocha": "^2.2.41",
-    "@types/should": "^8.3.0",
-    "mocha": "^3.5.0",
-    "should": "^11.2.1",
-    "ts-mocha": "^1.0.3",
-    "ts-node": "^3.3.0"
+    "@types/assert": "1.5.6",
+    "@types/mocha": "^9.1.0",
+    "@types/should": "^11.2.0",
+    "mocha": "^9.2.2",
+    "should": "^13.2.3",
+    "ts-mocha": "^9.0.2",
+    "ts-node": "^10.7.0"
   },
   "dependencies": {
-    "@angular/cli": "^1.2.7"
+    "@angular/cli": "^13.3.1"
   }
 }
